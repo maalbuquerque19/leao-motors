@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.vercel/
+dist_preview/
+*.pdf
+*.bat
+*.jpeg
+create_pdf.js
