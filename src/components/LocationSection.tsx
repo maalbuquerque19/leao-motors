@@ -1,4 +1,4 @@
-import { MapPin, Navigation, MessageCircle, Phone, Clock, ExternalLink } from "lucide-react";
+import { MapPin, Navigation, MessageCircle, Phone, Clock, ExternalLink, Instagram, Star } from "lucide-react";
 import { COMPANY_INFO, WHATSAPP_MESSAGES, getWhatsAppUrl } from "@/data/siteData";
 
 export default function LocationSection() {
@@ -9,14 +9,14 @@ export default function LocationSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-3">
             <MapPin className="w-3.5 h-3.5" />
-            Ponto Estratégico
+            Fácil Acesso + Leva e Traz até 3km
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-graphite uppercase tracking-tight">
-            ESTAMOS EM CARAPICUÍBA
+            VISITE NOSSA OFICINA EM CARAPICUÍBA
           </h2>
           <div className="w-20 h-1.5 bg-brand-red mx-auto mt-4 mb-5 rounded-full"></div>
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-            Venha nos visitar em nossa unidade na Vila Caldas. Fácil acesso para Carapicuíba, Barueri, Osasco e região metropolitana.
+            Unidade própria na Vila Caldas com fácil acesso para Carapicuíba, Barueri, Osasco, Jandira e Cotia.
           </p>
         </div>
 
@@ -31,11 +31,11 @@ export default function LocationSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-brand-graphite">{COMPANY_INFO.name}</h3>
-                  <p className="text-xs text-gray-500">{COMPANY_INFO.legalName}</p>
+                  <p className="text-xs text-gray-500">{COMPANY_INFO.legalName} • 40 Anos</p>
                 </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {/* Endereço */}
                 <div>
                   <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">
@@ -53,10 +53,10 @@ export default function LocationSection() {
                 {/* Telefone e WhatsApp */}
                 <div>
                   <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">
-                    Telefone e WhatsApp
+                    Telefone Direto e WhatsApp
                   </h4>
                   <a
-                    href={`tel:${COMPANY_INFO.phoneRaw}`}
+                    href={`tel:${COMPANY_INFO.phoneTel}`}
                     className="text-lg font-bold text-brand-red hover:underline flex items-center gap-2"
                   >
                     <Phone className="w-4 h-4 text-brand-red" />
@@ -64,15 +64,40 @@ export default function LocationSection() {
                   </a>
                 </div>
 
-                {/* Atendimento (campo editável sem dados inventados) */}
+                {/* Horário de Funcionamento Oficial */}
                 <div className="bg-brand-ice p-4 rounded-xl border border-brand-gray-light">
                   <h4 className="text-xs font-bold text-brand-graphite uppercase tracking-wider mb-1 flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-brand-red" />
                     Horário de Funcionamento
                   </h4>
-                  <p className="text-xs text-gray-600">
-                    {COMPANY_INFO.businessHours}
+                  <p className="text-sm font-extrabold text-brand-graphite">
+                    Segunda a Sexta: 08h às 18h
                   </p>
+                  <p className="text-sm font-extrabold text-brand-graphite">
+                    Sábado: 08h às 13h
+                  </p>
+                </div>
+
+                {/* Links Sociais: Instagram & Google Meu Negócio */}
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <a
+                    href={COMPANY_INFO.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-graphite hover:text-brand-red bg-brand-ice px-3.5 py-2 rounded-lg border border-brand-gray-light transition-colors"
+                  >
+                    <Instagram className="w-4 h-4 text-brand-red" />
+                    <span>Instagram Oficial</span>
+                  </a>
+                  <a
+                    href={COMPANY_INFO.googleReviewsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-graphite hover:text-brand-red bg-brand-ice px-3.5 py-2 rounded-lg border border-brand-gray-light transition-colors"
+                  >
+                    <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <span>Google Meu Negócio</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -87,18 +112,18 @@ export default function LocationSection() {
                 id="btn-como-chegar"
               >
                 <Navigation className="w-4 h-4" />
-                <span>Como Chegar</span>
+                <span>Traçar Rota no Mapa</span>
               </a>
 
               <a
-                href={getWhatsAppUrl(WHATSAPP_MESSAGES.geral)}
+                href={getWhatsAppUrl(WHATSAPP_MESSAGES.levaETraz)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-brand-ice text-brand-graphite border border-brand-gray-light font-bold py-3.5 px-4 rounded-xl text-sm transition-all shadow-sm"
                 id="btn-whatsapp-local"
               >
                 <MessageCircle className="w-4 h-4 text-brand-red" />
-                <span>Falar no WhatsApp</span>
+                <span>Pedir Leva e Traz</span>
               </a>
             </div>
           </div>

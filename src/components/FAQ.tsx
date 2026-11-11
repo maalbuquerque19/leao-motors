@@ -2,36 +2,34 @@
 
 import { useState } from "react";
 import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
-import { WHATSAPP_MESSAGES, getWhatsAppUrl } from "@/data/siteData";
+import { COMPANY_INFO, WHATSAPP_MESSAGES, getWhatsAppUrl } from "@/data/siteData";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
+      question: "Quanto custa a troca de óleo de câmbio automático e de motor?",
+      answer: `A troca de óleo de motor parte de ${COMPANY_INFO.pricing.oleoMotorFrom} e a troca de óleo de câmbio automático por máquina de diálise parte de ${COMPANY_INFO.pricing.cambioAutomaticoFrom}. O valor exato depende da litragem da caixa (normalmente de 6 a 10 litros na troca completa), da norma exigida pela montadora (Dexron VI, WS, HCF-2, NS-3, AW-1, DSG, ZF) e do modelo do filtro. Envie o modelo e ano do seu carro no WhatsApp e passamos o orçamento fechado na hora!`,
+    },
+    {
+      question: "Vocês fazem a troca de câmbio por máquina de diálise (100%) ou parcial?",
+      answer:
+        "Realizamos a troca completa com Máquina de Diálise Computadorizada, que substitui até 100% do fluido (incluindo o óleo velho retido no conversor de torque e no radiador), usando a própria pressão de trabalho do câmbio. Antes do procedimento, fazemos uma avaliação prévia gratuita da saúde da transmissão.",
+    },
+    {
       question: "Quando devo trocar o óleo do câmbio automático?",
       answer:
-        "O intervalo depende do fabricante, do modelo da transmissão e das condições de utilização. Consulte o manual do veículo e procure orientação técnica com nossa equipe.",
+        "Para uso urbano no Brasil (trânsito intenso, subidas e calor), fabricantes de transmissões como Aisin e ZF recomendam a troca preventiva entre 40.000 km e 60.000 km (ou a cada 3 a 4 anos). Mesmo quando o manual chama o fluido de 'longa vida', o óleo sofre oxidação térmica e perde viscosidade, o que pode gerar trancos, patinação e desgaste caro das solenoides.",
     },
     {
-      question: "Todo câmbio automático precisa trocar óleo?",
+      question: "Como funciona o Sistema Leva e Traz Grátis até 3km?",
       answer:
-        "Os procedimentos e recomendações variam entre fabricantes e modelos. É necessário verificar as especificações de cada transmissão para garantir o plano de manutenção correto.",
+        "Se você mora ou trabalha em um raio de até 3km da nossa oficina em Carapicuíba, buscamos seu veículo no horário agendado, realizamos o serviço enviando vídeos dos frascos lacrados (Motul, Mobil, Castrol, Petronas, Valvoline ou Febi) e do visor da máquina de diálise pelo WhatsApp, e devolvemos seu carro pronto com total segurança.",
     },
     {
-      question: "Qual óleo devo utilizar no motor?",
-      answer:
-        "O lubrificante deve atender rigorosamente às especificações de viscosidade e desempenho (API, ACEA e normas específicas da montadora) indicadas no manual do veículo.",
-    },
-    {
-      question: "Quanto custa a troca de óleo do câmbio automático?",
-      answer:
-        "O valor depende do veículo, da capacidade e do tipo de fluido homologado especificado, além do procedimento necessário. Entre em contato conosco para solicitar um orçamento sem compromisso.",
-    },
-    {
-      question: "Onde vocês estão localizados?",
-      answer:
-        "Estamos na Av. Dep. Emílio Carlos, 628 - Vila Caldas, Carapicuíba - SP (CEP 06310-160). Contamos com fácil acesso para clientes de toda a região.",
+      question: "Qual o horário de funcionamento e onde vocês ficam?",
+      answer: `Atendemos de ${COMPANY_INFO.businessHours}, na ${COMPANY_INFO.address.full}. Temos fácil acesso para motoristas de Carapicuíba, Barueri, Osasco, Jandira e Cotia.`,
     },
   ];
 
@@ -46,14 +44,14 @@ export default function FAQ() {
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
-            Tire Suas Dúvidas
+            Respostas Diretas e Sem Enrolação
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-graphite uppercase tracking-tight">
             PERGUNTAS FREQUENTES
           </h2>
           <div className="w-20 h-1.5 bg-brand-red mx-auto mt-4 mb-4 rounded-full"></div>
           <p className="text-base text-gray-600 font-normal">
-            Principais esclarecimentos sobre a manutenção de lubrificantes e câmbio.
+            Tire suas dúvidas sobre preços, prazos, método por diálise e garantia.
           </p>
         </div>
 
@@ -108,7 +106,7 @@ export default function FAQ() {
         {/* Button below FAQ */}
         <div className="text-center mt-12 pt-4">
           <p className="text-sm text-gray-600 mb-4">
-            Não encontrou a resposta que procurava?
+            Quer saber quantos litros e qual óleo exato o seu carro utiliza?
           </p>
           <a
             href={getWhatsAppUrl(WHATSAPP_MESSAGES.duvidas)}
@@ -118,7 +116,7 @@ export default function FAQ() {
             id="faq-btn-duvidas"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
-            <span>Tenho Outra Dúvida</span>
+            <span>Perguntar para o Especialista no WhatsApp</span>
           </a>
         </div>
       </div>

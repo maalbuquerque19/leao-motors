@@ -1,14 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, X } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Clock, Instagram, Star } from "lucide-react";
 import { COMPANY_INFO, WHATSAPP_MESSAGES, getWhatsAppUrl } from "@/data/siteData";
 
 export default function Footer() {
-  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
-
   return (
     <footer className="relative bg-[#151618] text-white pt-16 pb-24 md:pb-12 border-t-4 border-brand-red overflow-hidden">
       {/* Marca d'água do Logo com cores no fundo do Rodapé */}
@@ -34,22 +29,42 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Especialistas em troca de óleo de câmbio automático e motor em Carapicuíba. Cuidado técnico, respeito às especificações e compromisso com o seu veículo.
+              40 anos de tradição e experiência em Carapicuíba. Troca de óleo de câmbio automático 100% por máquina de diálise, óleo de motor homologado e Sistema Leva e Traz Grátis até 3km.
             </p>
-            <div className="pt-2">
+            <div className="flex flex-wrap items-center gap-2 pt-2">
               <a
                 href={getWhatsAppUrl(WHATSAPP_MESSAGES.geral)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white bg-brand-red hover:bg-brand-red-dark px-4 py-2 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white bg-brand-red hover:bg-brand-red-dark px-4 py-2.5 rounded-lg transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                Falar no WhatsApp
+                WhatsApp
+              </a>
+              <a
+                href={COMPANY_INFO.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram Leão Motors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-300 hover:text-white bg-white/10 hover:bg-white/20 px-3.5 py-2.5 rounded-lg transition-colors"
+              >
+                <Instagram className="w-3.5 h-3.5 text-brand-red" />
+                <span>Instagram</span>
+              </a>
+              <a
+                href={COMPANY_INFO.googleReviewsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Avaliações no Google"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-300 hover:text-white bg-white/10 hover:bg-white/20 px-3.5 py-2.5 rounded-lg transition-colors"
+              >
+                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <span>Google 4.9★</span>
               </a>
             </div>
           </div>
 
-          {/* Col 2: Serviços */}
+          {/* Col 2: Serviços (Todos apontando para seções reais) */}
           <div>
             <h4 className="text-base font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-red" />
@@ -58,34 +73,34 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
                 <a
-                  href="#servicos"
+                  href="#cambio-automatico"
                   className="hover:text-brand-red transition-colors flex items-center gap-1.5"
                 >
-                  Troca de Óleo de Câmbio Automático
+                  Troca de Óleo de Câmbio (A partir de {COMPANY_INFO.pricing.cambioAutomaticoFrom})
                 </a>
               </li>
               <li>
                 <a
-                  href="#servicos"
+                  href="#oleo-motor"
                   className="hover:text-brand-red transition-colors flex items-center gap-1.5"
                 >
-                  Troca de Óleo de Motor
+                  Troca de Óleo de Motor (A partir de {COMPANY_INFO.pricing.oleoMotorFrom})
                 </a>
               </li>
               <li>
                 <a
-                  href="#servicos"
+                  href="#metodo-dialise"
                   className="hover:text-brand-red transition-colors flex items-center gap-1.5"
                 >
-                  Verificação de Fluidos & Especificações
+                  Método por Máquina de Diálise 100%
                 </a>
               </li>
               <li>
                 <a
-                  href="#sobre"
+                  href="#leva-e-traz"
                   className="hover:text-brand-red transition-colors flex items-center gap-1.5"
                 >
-                  Orientações de Manutenção Preventiva
+                  Sistema Leva e Traz Grátis até 3km
                 </a>
               </li>
             </ul>
@@ -105,22 +120,22 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#servicos" className="hover:text-brand-red transition-colors">
-                  Serviços
+                  Serviços e Preços
+                </a>
+              </li>
+              <li>
+                <a href="#avaliacoes" className="hover:text-brand-red transition-colors">
+                  Avaliações de Clientes (Google)
                 </a>
               </li>
               <li>
                 <a href="#sobre" className="hover:text-brand-red transition-colors">
-                  Sobre Nós & Manutenção
-                </a>
-              </li>
-              <li>
-                <a href="#diferenciais" className="hover:text-brand-red transition-colors">
-                  Diferenciais
+                  Sobre Nós (40 Anos de Tradição)
                 </a>
               </li>
               <li>
                 <a href="#duvidas" className="hover:text-brand-red transition-colors">
-                  Dúvidas Frequentes
+                  Perguntas Frequentes
                 </a>
               </li>
               <li>
@@ -152,8 +167,8 @@ export default function Footer() {
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-brand-red flex-shrink-0" />
                 <a
-                  href={`tel:${COMPANY_INFO.phoneRaw}`}
-                  className="hover:text-white font-medium"
+                  href={`tel:${COMPANY_INFO.phoneTel}`}
+                  className="hover:text-white font-bold text-white"
                 >
                   {COMPANY_INFO.phone}
                 </a>
@@ -162,9 +177,9 @@ export default function Footer() {
               <div className="pt-2 border-t border-gray-800">
                 <p className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-1 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-brand-red" />
-                  Horário de Atendimento
+                  Horário de Funcionamento
                 </p>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs font-semibold text-white">
                   {COMPANY_INFO.businessHours}
                 </p>
               </div>
@@ -176,12 +191,12 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800 text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} {COMPANY_INFO.legalName}. Todos os direitos reservados.</p>
           <div className="flex items-center gap-6">
-            <button
-              onClick={() => setIsPrivacyOpen(true)}
-              className="hover:text-white transition-colors underline"
+            <Link
+              href="/politica-de-privacidade"
+              className="hover:text-white transition-colors underline font-medium"
             >
-              Política de Privacidade
-            </button>
+              Política de Privacidade (LGPD)
+            </Link>
             <a
               href="#inicio"
               className="hover:text-white transition-colors"
@@ -191,52 +206,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Privacy Policy Modal */}
-      {isPrivacyOpen && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white text-brand-graphite rounded-2xl max-w-2xl w-full p-6 sm:p-8 max-h-[85vh] overflow-y-auto shadow-2xl relative">
-            <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
-              <h3 className="text-xl font-bold text-brand-graphite flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-brand-red" />
-                Política de Privacidade
-              </h3>
-              <button
-                onClick={() => setIsPrivacyOpen(false)}
-                className="p-1 rounded-lg text-gray-400 hover:text-gray-700"
-                aria-label="Fechar"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
-              <p>
-                A <strong>{COMPANY_INFO.legalName}</strong> valoriza a privacidade e a segurança dos dados de seus clientes e visitantes.
-              </p>
-              <h4 className="font-bold text-brand-graphite">1. Coleta de Informações</h4>
-              <p>
-                Os dados fornecidos em nossos formulários (como nome e dados do veículo) são utilizados estritamente para o envio direto de sua solicitação de orçamento via WhatsApp e para o atendimento técnico personalizado. Não comercializamos nem repassamos informações a terceiros.
-              </p>
-              <h4 className="font-bold text-brand-graphite">2. Comunicação via WhatsApp</h4>
-              <p>
-                Ao iniciar um contato pelo WhatsApp através do site, a conversa seguirá os termos de segurança e privacidade do próprio aplicativo WhatsApp (Meta).
-              </p>
-              <h4 className="font-bold text-brand-graphite">3. Dúvidas</h4>
-              <p>
-                Para dúvidas sobre o uso das suas informações, entre em contato através do nosso telefone/WhatsApp oficial: {COMPANY_INFO.phone}.
-              </p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 text-right">
-              <button
-                onClick={() => setIsPrivacyOpen(false)}
-                className="bg-brand-red text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-brand-red-dark transition-colors"
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </footer>
   );
 }

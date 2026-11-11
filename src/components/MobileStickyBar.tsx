@@ -6,7 +6,7 @@ export default function MobileStickyBar() {
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-brand-gray-light p-2.5 shadow-[0_-4px_15px_rgba(0,0,0,0.08)]">
       <div className="max-w-md mx-auto grid grid-cols-2 gap-2">
         <a
-          href={`tel:${COMPANY_INFO.phoneRaw}`}
+          href={`tel:${COMPANY_INFO.phoneTel}`}
           className="flex items-center justify-center gap-1.5 py-3 px-3 bg-brand-ice hover:bg-gray-200 text-brand-graphite rounded-xl font-bold text-xs border border-brand-gray-light transition-all text-center"
         >
           <Phone className="w-3.5 h-3.5 text-brand-red flex-shrink-0" />
@@ -21,7 +21,7 @@ export default function MobileStickyBar() {
           id="mobile-bottom-whatsapp-btn"
         >
           <MessageCircle className="w-4 h-4 fill-white flex-shrink-0" />
-          <span>Pedir Orçamento</span>
+          <span>Orçamento + Leva e Traz</span>
         </a>
       </div>
     </div>

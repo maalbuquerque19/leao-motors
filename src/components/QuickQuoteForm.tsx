@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Car, Calendar, User, Wrench, CheckCircle } from "lucide-react";
-import { COMPANY_INFO, getWhatsAppUrl } from "@/data/siteData";
+import Link from "next/link";
+import { Send, Car, Calendar, User, Wrench, CheckCircle, ShieldCheck } from "lucide-react";
+import { getWhatsAppUrl } from "@/data/siteData";
 
 export default function QuickQuoteForm() {
   const [formData, setFormData] = useState({
     nome: "",
     modelo: "",
     ano: "",
-    servico: "Câmbio Automático",
+    servico: "Câmbio Automático (Diálise 100%)",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -33,7 +34,7 @@ export default function QuickQuoteForm() {
 • Ano: ${formData.ano}
 • Serviço Desejado: ${formData.servico}
 
-Gostaria de solicitar um orçamento e orientações técnicas.`;
+Quero saber a especificação exata do óleo e o valor para o meu veículo.`;
 
     const url = getWhatsAppUrl(message);
     window.open(url, "_blank");
@@ -45,18 +46,18 @@ Gostaria de solicitar um orçamento e orientações técnicas.`;
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-brand-gray-light">
           <div>
             <span className="inline-block px-3 py-1 rounded-full bg-brand-red/10 text-brand-red text-xs font-bold uppercase tracking-wider mb-2">
-              Atendimento Rápido
+              Orçamento Imediato + Sistema Leva e Traz
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-graphite">
-              Solicite seu Orçamento pelo WhatsApp
+              Descubra o Óleo Exato e o Valor para o Seu Carro
             </h2>
             <p className="text-sm sm:text-base text-gray-600 mt-1">
-              Preencha os dados do seu veículo e receba informações personalizadas diretamente da nossa equipe.
+              Informe seu veículo e receba no WhatsApp a especificação original da montadora, marcas disponíveis e o orçamento completo.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-xs font-medium text-gray-500 bg-brand-ice px-4 py-2 rounded-lg border border-brand-gray-light self-start lg:self-auto">
-            <CheckCircle className="w-4 h-4 text-brand-red" />
-            <span>Resposta rápida no WhatsApp</span>
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-graphite bg-brand-ice px-4 py-2.5 rounded-lg border border-brand-gray-light self-start lg:self-auto">
+            <CheckCircle className="w-4 h-4 text-brand-red flex-shrink-0" />
+            <span>Atendimento rápido • Leva e Traz Grátis até 3km</span>
           </div>
         </div>
 
@@ -87,7 +88,7 @@ Gostaria de solicitar um orçamento e orientações técnicas.`;
           {/* Modelo */}
           <div>
             <label htmlFor="quote-modelo" className="block text-xs font-bold text-brand-graphite uppercase tracking-wider mb-1.5">
-              Modelo do Veículo *
+              Modelo e Motor *
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
@@ -96,7 +97,7 @@ Gostaria de solicitar um orçamento e orientações técnicas.`;
               <input
                 id="quote-modelo"
                 type="text"
-                placeholder="Ex: Corolla 2.0 / Civic 1.5"
+                placeholder="Ex: Corolla 2.0 / Onix 1.0 Turbo"
                 value={formData.modelo}
                 onChange={(e) => setFormData({ ...formData, modelo: e.target.value })}
                 className={`w-full pl-10 pr-3 py-3 bg-brand-ice border ${
@@ -119,7 +120,7 @@ Gostaria de solicitar um orçamento e orientações técnicas.`;
               <input
                 id="quote-ano"
                 type="text"
-                placeholder="Ex: 2020"
+                placeholder="Ex: 2021"
                 value={formData.ano}
                 onChange={(e) => setFormData({ ...formData, ano: e.target.value })}
                 className={`w-full pl-10 pr-3 py-3 bg-brand-ice border ${
@@ -145,15 +146,15 @@ Gostaria de solicitar um orçamento e orientações técnicas.`;
                 onChange={(e) => setFormData({ ...formData, servico: e.target.value })}
                 className="w-full pl-10 pr-3 py-3 bg-brand-ice border border-brand-gray-light rounded-xl text-sm text-brand-graphite focus:outline-none focus:bg-white focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all cursor-pointer"
               >
-                <option value="Câmbio Automático">Troca de Óleo Câmbio Automático</option>
-                <option value="Óleo de Motor">Troca de Óleo de Motor</option>
-                <option value="Ambos (Câmbio e Motor)">Câmbio Automático + Motor</option>
-                <option value="Outras Dúvidas">Avaliação e Dúvidas Técnicas</option>
+                <option value="Câmbio Automático (Diálise 100%)">Troca de Óleo Câmbio Automático (Diálise)</option>
+                <option value="Óleo de Motor + Filtros">Troca de Óleo de Motor + Filtros</option>
+                <option value="Câmbio Automático + Óleo de Motor">Pacote Completo (Câmbio + Motor)</option>
+                <option value="Agendar com Leva e Traz (até 3km)">Quero Agendar com Leva e Traz (até 3km)</option>
               </select>
             </div>
           </div>
 
-          {/* Submit Button (Full Width on mobile, 4 columns span) */}
+          {/* Submit Button */}
           <div className="sm:col-span-2 lg:col-span-4 mt-2">
             <button
               type="submit"
@@ -161,10 +162,20 @@ Gostaria de solicitar um orçamento e orientações técnicas.`;
               id="quote-form-submit"
             >
               <Send className="w-4 h-4" />
-              <span>Enviar Solicitação pelo WhatsApp</span>
+              <span>Receber Orçamento Agora no WhatsApp</span>
             </button>
-            <p className="text-center text-xs text-gray-500 mt-2">
-              Ao clicar, você será direcionado ao WhatsApp da Leão Motors com a mensagem pronta.
+            <p className="text-center text-xs text-gray-500 mt-2.5 flex flex-wrap items-center justify-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-brand-red inline" />
+              <span>
+                Seus dados são usados apenas para montar sua mensagem no WhatsApp, conforme nossa{" "}
+                <Link
+                  href="/politica-de-privacidade"
+                  className="text-brand-red font-semibold underline hover:text-brand-red-dark"
+                >
+                  Política de Privacidade (LGPD)
+                </Link>
+                .
+              </span>
             </p>
           </div>
         </form>

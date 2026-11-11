@@ -1,4 +1,4 @@
-import { MessageSquare, ClipboardCheck, CalendarCheck, ArrowRight } from "lucide-react";
+import { MessageSquare, ClipboardCheck, Car, ArrowRight } from "lucide-react";
 import { WHATSAPP_MESSAGES, getWhatsAppUrl } from "@/data/siteData";
 
 export default function HowItWorks() {
@@ -6,23 +6,23 @@ export default function HowItWorks() {
     {
       number: "01",
       icon: MessageSquare,
-      title: "Entre em contato",
+      title: "Informe seu veículo no WhatsApp",
       description:
-        "Clique no WhatsApp e informe o modelo, ano e motorização do seu veículo para nossa equipe.",
+        "Envie o modelo, ano e motorização (ou a placa). Em poucos minutos consultamos a especificação exata da montadora e a litragem do seu câmbio ou motor.",
     },
     {
       number: "02",
       icon: ClipboardCheck,
-      title: "Consulte o serviço",
+      title: "Receba o orçamento fechado",
       description:
-        "Nossa equipe poderá orientar sobre o atendimento técnico e as informações necessárias para o orçamento.",
+        "Informamos o valor transparente (Motor a partir de R$ 189 | Câmbio a partir de R$ 690), as marcas homologadas disponíveis e o tempo estimado do serviço.",
     },
     {
       number: "03",
-      icon: CalendarCheck,
-      title: "Agende sua visita",
+      icon: Car,
+      title: "Venha até nós ou use o Leva e Traz",
       description:
-        "Combine o atendimento e visite nossa unidade na Av. Dep. Emílio Carlos em Carapicuíba.",
+        "Traga seu carro na Av. Dep. Emílio Carlos, 628 ou solicite nosso Sistema Leva e Traz Grátis (até 3km) com envio de vídeos de todo o procedimento no WhatsApp.",
     },
   ];
 
@@ -32,14 +32,14 @@ export default function HowItWorks() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-wider mb-3">
-            Passo a Passo
+            Passo a Passo Simples
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-graphite uppercase tracking-tight">
             COMO FUNCIONA O ATENDIMENTO
           </h2>
           <div className="w-20 h-1.5 bg-brand-red mx-auto mt-4 mb-5 rounded-full"></div>
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-            Um processo direto, rápido e transparente para você cuidar do seu carro sem complicação.
+            Sem filas e sem surpresas no orçamento: você sabe exatamente qual fluido será aplicado e quanto vai investir antes mesmo de sair de casa.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function HowItWorks() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 text-brand-red hover:text-brand-red-dark font-bold text-base sm:text-lg group"
           >
-            <span>Iniciar atendimento agora pelo WhatsApp</span>
+            <span>Consultar especificação e valor para o meu carro agora</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
           </a>
         </div>
